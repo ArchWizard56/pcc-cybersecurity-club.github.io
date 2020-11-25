@@ -4,7 +4,7 @@ title = "(PCC)^2 Wiki"
 theme = "hugo-theme-learn"
 
 [params]
-editURL = "https://gitlab.com/stephenswnsn1/pcc2wiki-proof-of-concept/-/tree/master/content/"
+editURL = "https://github.com/ArchWizard56/pcc-cybersecurity-club.github.io/tree/master/_wiki/content"
 themeVariant = "blue"
 titleSeparator = "-"
 
