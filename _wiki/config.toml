@@ -1,0 +1,12 @@
+baseURL = "/wiki"
+languageCode = "en-us"
+title = "(PCC)^2 Wiki"
+theme = "hugo-theme-learn"
+
+[params]
+editURL = "https://gitlab.com/stephenswnsn1/pcc2wiki-proof-of-concept/-/tree/master/content/"
+themeVariant = "blue"
+titleSeparator = "-"
+
+[outputs]
+home = [ "HTML", "RSS", "JSON"]
