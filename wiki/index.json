@@ -1,0 +1,85 @@
+[
+{
+	"uri": "/wiki/resources/",
+	"title": "Resources",
+	"tags": [],
+	"description": "",
+	"content": "Resources Check out these resources:\n https://pcc-cybersecurity-club.github.io/resources.html Discord  "
+},
+{
+	"uri": "/wiki/contributing/",
+	"title": "Contributing",
+	"tags": [],
+	"description": "",
+	"content": "Contributing to this Wiki  If you want to talk about a page or you find an error, Open an Issue Spot a typo, or can you make a paragraph more clear and helpful? Edit a page Find an awesome tool, or have you solved a unique challenge that could be useful in the future? Add a page  "
+},
+{
+	"uri": "/wiki/resources/activedirectory/",
+	"title": "Active Directory Information",
+	"tags": [],
+	"description": "",
+	"content": "Discord resources  Presentation: https://drive.google.com/file/d/1FVr5Gi9g1MJPcUvPNz8VgmbczLVDdtuj/view?usp=sharing Detailed video about understanding USB packet captures: https://desowin.org/usbpcap/videos.html Great exFAT documentation: http://ntfs.com/exfat-overview.htm CryptoZombies, gamified Solidity learning: https://cryptozombies.io/ Learn Solidity in Y minutes: https://learnxinyminutes.com/docs/solidity/ Ethernaut - Web3/Solidity wargame (like overthewire for ethereum): https://ethernaut.openzeppelin.com/ Intro To Smart Contracts (solidity documentation): https://docs.soliditylang.org/en/v0.7.4/introduction-to-smart-contracts.html List of known Solidity attack vectors: https://blog.sigmaprime.io/solidity-security.html Ethereum Smart Contract Best Practices - Known Attacks: https://consensys.github.io/smart-contract-best-practices/known_attacks/ Solidity Security Considerations (solidity documentation): https://docs.soliditylang.org/en/v0.7.4/security-considerations.html#security-considerations EVM Opcodes: https://docs.soliditylang.org/en/v0.7.4/yul.html#opcodes Mythril EVM bytecode security analysis tool: https://github.com/ConsenSys/mythril CTFtime Blockchain Challenge Writeups: https://ctftime.org/writeups?page=1\u0026amp;hidden-tags=blockchain Remix - Online Ethereum IDE: https://remix.ethereum.org/  "
+},
+{
+	"uri": "/wiki/contributing/addingpage/",
+	"title": "Adding a new page",
+	"tags": [],
+	"description": "",
+	"content": "How to add a page or chapter to this Wiki If you want to add a section or an entire guide, you\u0026rsquo;ll likely want to Install Hugo, and a editor that helps with writing Markdown. I like Visual Studio Code.\n"
+},
+{
+	"uri": "/wiki/resources/cryptography/",
+	"title": "Cryptography",
+	"tags": [],
+	"description": "",
+	"content": "Discord resources  Presentation: https://drive.google.com/file/d/1FVr5Gi9g1MJPcUvPNz8VgmbczLVDdtuj/view?usp=sharing Detailed video about understanding USB packet captures: https://desowin.org/usbpcap/videos.html Great exFAT documentation: http://ntfs.com/exfat-overview.htm CryptoZombies, gamified Solidity learning: https://cryptozombies.io/ Learn Solidity in Y minutes: https://learnxinyminutes.com/docs/solidity/ Ethernaut - Web3/Solidity wargame (like overthewire for ethereum): https://ethernaut.openzeppelin.com/ Intro To Smart Contracts (solidity documentation): https://docs.soliditylang.org/en/v0.7.4/introduction-to-smart-contracts.html List of known Solidity attack vectors: https://blog.sigmaprime.io/solidity-security.html Ethereum Smart Contract Best Practices - Known Attacks: https://consensys.github.io/smart-contract-best-practices/known_attacks/ Solidity Security Considerations (solidity documentation): https://docs.soliditylang.org/en/v0.7.4/security-considerations.html#security-considerations EVM Opcodes: https://docs.soliditylang.org/en/v0.7.4/yul.html#opcodes Mythril EVM bytecode security analysis tool: https://github.com/ConsenSys/mythril CTFtime Blockchain Challenge Writeups: https://ctftime.org/writeups?page=1\u0026amp;hidden-tags=blockchain Remix - Online Ethereum IDE: https://remix.ethereum.org/  "
+},
+{
+	"uri": "/wiki/resources/discord/",
+	"title": "Discord",
+	"tags": [],
+	"description": "",
+	"content": "Discord resources  Presentation: https://drive.google.com/file/d/1FVr5Gi9g1MJPcUvPNz8VgmbczLVDdtuj/view?usp=sharing Detailed video about understanding USB packet captures: https://desowin.org/usbpcap/videos.html Great exFAT documentation: http://ntfs.com/exfat-overview.htm CryptoZombies, gamified Solidity learning: https://cryptozombies.io/ Learn Solidity in Y minutes: https://learnxinyminutes.com/docs/solidity/ Ethernaut - Web3/Solidity wargame (like overthewire for ethereum): https://ethernaut.openzeppelin.com/ Intro To Smart Contracts (solidity documentation): https://docs.soliditylang.org/en/v0.7.4/introduction-to-smart-contracts.html List of known Solidity attack vectors: https://blog.sigmaprime.io/solidity-security.html Ethereum Smart Contract Best Practices - Known Attacks: https://consensys.github.io/smart-contract-best-practices/known_attacks/ Solidity Security Considerations (solidity documentation): https://docs.soliditylang.org/en/v0.7.4/security-considerations.html#security-considerations EVM Opcodes: https://docs.soliditylang.org/en/v0.7.4/yul.html#opcodes Mythril EVM bytecode security analysis tool: https://github.com/ConsenSys/mythril CTFtime Blockchain Challenge Writeups: https://ctftime.org/writeups?page=1\u0026amp;hidden-tags=blockchain Remix - Online Ethereum IDE: https://remix.ethereum.org/  "
+},
+{
+	"uri": "/wiki/contributing/editingpage/",
+	"title": "Editing a page",
+	"tags": [],
+	"description": "",
+	"content": "How to edit a page For minor changes, go to the Github\nThis is where the section will be on making a pull request to do things like fix typos\n "
+},
+{
+	"uri": "/wiki/",
+	"title": "Home",
+	"tags": [],
+	"description": "",
+	"content": "Welcome to the PCC² wiki Here you\u0026rsquo;ll find a gathering of resources, guides, and other helpful information compiled by the Portland Community College Cybersecurity Club (PCC²). If you\u0026rsquo;re looking to get started, take a peek at the master resources page, migrated from our Discord, or look at some of our awesome guides. For more information about the club, see our homepage, and if you have anything that you think belongs here, see our guide on contributing to this wiki here.\n"
+},
+{
+	"uri": "/wiki/contributing/issue/",
+	"title": "Opening an Issue",
+	"tags": [],
+	"description": "",
+	"content": "How to report an error or ask for a feature If you have a request for a guide or other ideas for this site do\nHere I\u0026rsquo;ll have a section about creating issues on github\n "
+},
+{
+	"uri": "/wiki/resources/webapps/",
+	"title": "Web Application Testing",
+	"tags": [],
+	"description": "",
+	"content": "Discord resources  Presentation: https://drive.google.com/file/d/1FVr5Gi9g1MJPcUvPNz8VgmbczLVDdtuj/view?usp=sharing Detailed video about understanding USB packet captures: https://desowin.org/usbpcap/videos.html Great exFAT documentation: http://ntfs.com/exfat-overview.htm CryptoZombies, gamified Solidity learning: https://cryptozombies.io/ Learn Solidity in Y minutes: https://learnxinyminutes.com/docs/solidity/ Ethernaut - Web3/Solidity wargame (like overthewire for ethereum): https://ethernaut.openzeppelin.com/ Intro To Smart Contracts (solidity documentation): https://docs.soliditylang.org/en/v0.7.4/introduction-to-smart-contracts.html List of known Solidity attack vectors: https://blog.sigmaprime.io/solidity-security.html Ethereum Smart Contract Best Practices - Known Attacks: https://consensys.github.io/smart-contract-best-practices/known_attacks/ Solidity Security Considerations (solidity documentation): https://docs.soliditylang.org/en/v0.7.4/security-considerations.html#security-considerations EVM Opcodes: https://docs.soliditylang.org/en/v0.7.4/yul.html#opcodes Mythril EVM bytecode security analysis tool: https://github.com/ConsenSys/mythril CTFtime Blockchain Challenge Writeups: https://ctftime.org/writeups?page=1\u0026amp;hidden-tags=blockchain Remix - Online Ethereum IDE: https://remix.ethereum.org/  "
+},
+{
+	"uri": "/wiki/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/wiki/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]

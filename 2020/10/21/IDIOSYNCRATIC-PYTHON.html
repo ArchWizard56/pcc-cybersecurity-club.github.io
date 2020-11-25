@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/css/style.css?v=">
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Python Idiosyncracies</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Python Idiosyncracies" />
+<meta name="author" content="Blake Eakin" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Python Idiosyncracies" />
+<meta property="og:description" content="Python Idiosyncracies" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-10-21T00:00:00+00:00" />
+<script type="application/ld+json">
+{"datePublished":"2020-10-21T00:00:00+00:00","description":"Python Idiosyncracies","author":{"@type":"Person","name":"Blake Eakin"},"mainEntityOfPage":{"@type":"WebPage","@id":"/2020/10/21/IDIOSYNCRATIC-PYTHON.html"},"@type":"BlogPosting","url":"/2020/10/21/IDIOSYNCRATIC-PYTHON.html","headline":"Python Idiosyncracies","dateModified":"2020-10-21T00:00:00+00:00","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+
+  <body>
+
+    <header>
+      <nav>
+  <ul class="nav-list">
+    <li><img alt="1337 H4X0Rz Only!" class="nav-logo" src="/assets/images/PCCCC_Simple_Logo_T.png"></li>
+    <li><h2><a href="/">HOME</a></h2></li>
+    <li><h2><a href="/membership.html">MEMBERSHIP</a></h2></li>
+    <li><h2><a href="/resources.html">RESOURCES</a></h2></li>
+    <li><h2><a href="/events.html">EVENTS</a></h2></li>
+    <li><h2><a href="/roster.html">ROSTER</a></h2></li>
+    <li><h2><a href="/blog.html">BLOG</a></h2></li>
+    <li><h2><a href="/about.html">ABOUT</a></h2></li>
+    <li><h2><a href="/faq.html">FAQ</a></h2></li>
+    <li><h2><a href="/wiki">WIKI</a></h2></li>
+  </ul>
+</nav>
+
+      <div class="container">
+        <!-- <h1></h1>
+        <h2></h2>
+
+        <section id="downloads">
+          
+          <a href="" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section> -->
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <small>21 October 2020</small>
+<h1>Python Idiosyncracies</h1>
+
+<p class="view">by Blake Eakin</p>
+<div class="post-body"
+  <p><em>Python Idiosyncracies</em></p>
+
+<p>
+Reading through obfuscated code, that's meant to try and keep you from understanding its control flow, is a lot like trying to figure out which path to take in a twisty, curt choose your own adventure novel in order to get to the best ending. What makes a Choose Your Own Adventure easier is that we are well acquainted with the language used and the branching is simpler (wait, isn't that everything?). Here I'd like to make a sort of reference for facets of Python that aren't always typical in other similar languages, or necessarily well-known to people just getting into the language. While general programming knowledge of common syntaxes can get you far in reading and understanding confusing code, most challenges will make use of idiosyncratic syntaxes and features that may throw you off if you don't know what they mean. There are certainly more obscure Python features, but these are some of the things you're most likely to see in a CTF challenge.
+</p>
+
+<h3>Array Slicing</h3>
+<p>
+    The array slicing operator offers a way to return a sub-array from another array according to some arithmetic pattern. While array slicing itself isn't too complicated, the ability to use negative indices can quickly ramp up the confusion. Here is the general form: <code>array[start:stop:step]</code> Where start is the index in the array where the slice will begin (inclusive), stop is the index up to which the slice will end (exclusive), and the step is how many indices to move on to before including another element in the slice. Slices can easily be visualized using strings, here is the most basic case:
+
+</p>
+<pre>
+    <code>
+    &gt;&gt;&gt; initString = "Hack the planet!"
+    &gt;&gt;&gt; initString[5:8:1]
+    'the'
+    </code>
+</pre>
+<p>
+    Notice that the start is counted from 0 just like any other array reference, the end is one larger than the index it stops on. The step of one includes array elements sequentially, but can be changed to include every other letter, or every 3rd, etc.
+</p>
+<pre>
+    <code>
+    &gt;&gt;&gt; initString[9:15:2] #Includes every other character
+    'pae'
+    &gt;&gt;&gt; initString[9:15:3] #Or every third
+    'pn'
+    </code>
+</pre>
+<p>
+    But the step can be left out and will default to one. In fact any of it can be left out to be left to default values.
+</p>
+<pre>
+    <code>
+    &gt;&gt;&gt; initString[9:15:] #Leaving out step will default to step=1
+    'planet'
+    &gt;&gt;&gt; initString[9::] #Leaving out end will default to including elements all the way to the end
+    'planet!'
+    &gt;&gt;&gt; initString[:15:2] #Leaving out start will default to including elements starting at 0
+    'Hc h lnt'
+    &gt;&gt;&gt; initString[::] #Leaving out all fields will default to including the whole array
+    'Hack the planet!'
+    &gt;&gt;&gt; initString[:8:] #Any mixture of included and excluded fields will work
+    'Hack the'
+    </code>
+</pre>
+
+<p>
+    Ok, that all makes sense, but how would negative numbers fit in? Well, if you just consider that the inputs provided for start and end are just calculated as a distance from the starting 0 index, then negative/positive values declare direction.
+</p>
+
+<pre>
+    <code>
+    &gt;&gt;&gt; initString[-7:] #Negative indices walk backwards through the array to find start/end points
+    'planet!'
+    &gt;&gt;&gt; initString[-7:-1] 
+    'planet'
+    &gt;&gt;&gt; initString[-7:15] 
+    'planet'
+    &gt;&gt;&gt; initString[::-1] #Negative steps reverse step direction
+    '!tenalp eht kcaH'
+    &gt;&gt;&gt; initString[-7::-1] #It still considers the last element as the end, just in the other direction
+    'p eht kcaH'
+    &gt;&gt;&gt; initString[-7:-1:-1] #But doesn't wrap
+    ''
+    &gt;&gt;&gt; initString[-2:8:-1] #Any mix of + and - indices can be used only if they are on the way in the step direction without wrapping
+    'tenalp'
+    </code>
+</pre>
+
+<pre>
+    <code>
+    &gt;&gt;&gt; intArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    &gt;&gt;&gt; hexArray = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15']
+    &gt;&gt;&gt; hexArray[10:] = ['A', 'B', 'C', 'D', 'E', 'F'] # Slices can be assigned to as well, but not in strings
+    &gt;&gt;&gt; hexArray
+    ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F']
+    </code>
+</pre>
+
+<p>
+    Really this is all just a bit of 'syntactic sugar' for using the <code>slice()</code> built-in function.
+</p>
+<pre>
+    <code>
+    &gt;&gt;&gt; initString[slice(0,4)]
+    'Hack'
+    &gt;&gt;&gt; mySlice = slice(0,4) # In fact you can save slices for reuse
+    &gt;&gt;&gt; initString[mySlice]
+    'Hack'
+    </code>
+</pre>
+<h3>Uncommon Operators And Syntax</h3>
+
+<pre>
+    <code>
+    &gt;&gt;&gt; 10 &lt; x &lt;= 20 # Condtional operators can be chained, equivalent to 10 &lt; x and x &lt;= 20
+    True
+    &gt;&gt;&gt; 10 &lt;= x/2 &lt; x &lt; 30
+    True
+
+    &gt;&gt;&gt; 15 / 3 #Normal division results in a float
+    5.0
+    &gt;&gt;&gt; 15 // 3 #So floor division rounds down to provide the more typical integer division
+    5
+
+    &gt;&gt;&gt; x = 1.0
+    &gt;&gt;&gt; y = 1
+    &gt;&gt;&gt; x == y
+    True
+    &gt;&gt;&gt; x is y #The is operator is similar to javascript's === operator. It checks for equality in values and types
+    False
+    
+    &gt;&gt;&gt; print("True") if 1==1 else print("False") # The ternary operator is for writing inline conditional statements
+    True
+    &gt;&gt;&gt; print("True") if 1!=1 else print("False") # The syntax is: expression-if-true if condition else expression-if-false
+    False
+
+    </code>
+</pre>
+
+<h3>Lambda Functions</h3>
+
+<p>
+    Lambda functions are basically functions with no names. They can be used to generate dynamic functions, passed as function arguments, and cause a lot of general confusion. Their general form is <code> lambda <i>arguments</i> : <i>return expression</i></code>
+</p>
+
+<pre>
+    <code>
+        &gt;&gt;&gt; def sum(a, b):
+        ...     return a + b
+        ... 
+        &gt;&gt;&gt; sum(5, 12)
+        17
+        &gt;&gt;&gt; lambdaSum = lambda a, b: a + b # This is the same as sum
+        &gt;&gt;&gt; lambdaSum(5, 12) # And can be called similarly
+        17
+        &gt;&gt;&gt; (lambda a, b: a + b)(5, 12) # They can be used dynamically
+        17
+        &gt;&gt;&gt; (lambda a, b, c: c(a, b))(5, 12, lambda a, b: a+b) # They can be passed as arguments
+        17
+        &gt;&gt;&gt; (lambda a, b, c: c(a, b))(5, 12, lambdaSum) # All named functions can be passed as well
+        17
+        &gt;&gt;&gt; (lambda a, b, c: c(a, b))(5, 12, sum)
+        17
+        &gt;&gt;&gt; (lambda a, b: a + b)((lambda a, b: a-b)(8,3), (lambda a, b, c: c(a, b))(6, 6, sum)) # Things can get hairy pretty quickly
+        17
+
+    </code>
+</pre>
+
+<h3>Comprehensions And Generator Expressions</h3>
+<p>
+    In Python comprehensions are a very robust tool that can be used for a variety of purposes. But the most general way of explaining them is that they perform an operation on every element of an iterable object, possibly subject to a condition, and return the results in a specified data structure. They can be generalized as <code><i>operation on variable</i> for <i>variable</i> in <i>iterable</i> [if <i>optional condition</i>]</code>
+</p>
+
+<pre>
+    <code>
+    &gt;&gt;&gt; [x * 2 for x in range(11)] # This will create an array of all of the first ten numbers doubled
+    [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+
+    &gt;&gt;&gt; [x * 2 for x in range(11) if x % 2 == 0] # This does the same, but only for the even numbers
+    [0, 4, 8, 12, 16, 20]
+
+    &gt;&gt;&gt; [ [y ** x for y in range(1,6)] for x in range(1,6)] #Comprehensions can be nested for multi-dimensional results
+    [[1, 2, 3, 4, 5], [1, 4, 9, 16, 25], [1, 8, 27, 64, 125], [1, 16, 81, 256, 625], [1, 32, 243, 1024, 3125]]
+
+    &gt;&gt;&gt; someLetters = ['a', 'g', 'Y', 'e', 'M', 'A', 'z', 'U', 'I', 'A', 'q', 'q', 'Q', 'q'] 
+    &gt;&gt;&gt; { letter.lower() for letter in someLetters } # Comprehensions can be used for sets to gauarantee unique elements
+    {'u', 'z', 'y', 'a', 'e', 'm', 'i', 'q', 'g'}
+
+    &gt;&gt;&gt; { chr(i): i for i in range(97, 123) } # And dictionaries
+    {'a': 97, 'b': 98, 'c': 99, 'd': 100, 'e': 101, 'f': 102, 'g': 103, 'h': 104, 'i': 105, 'j': 106, 'k': 107, 'l': 108, 'm': 109, 'n': 110, 'o': 111, 'p': 112, 'q': 113, 'r': 114, 's': 115, 't': 116, 'u': 117, 'v': 118, 'w': 119, 'x': 120, 'y': 121, 'z': 122}
+    
+    &gt;&gt;&gt; gen = ( 2**x for x in range(10) ) # They can also be used to make generator objects
+    &gt;&gt;&gt; next(gen) # Which will give you elements on demand
+    1
+    &gt;&gt;&gt; next(gen)
+    2
+    &gt;&gt;&gt; next(gen)
+    4
+    </code>
+</pre>
+
+<h3>Declaration Unpacking</h3>
+<p>Unpacking is a quick way of declaring many variables together</p>
+<pre>
+    <code>
+    &gt;&gt;&gt; a, b, c, d = "a", ord('b'), 4.0, [1,2,3]
+    &gt;&gt;&gt; a
+    'a'
+    &gt;&gt;&gt; b
+    98
+    &gt;&gt;&gt; c
+    4.0
+    &gt;&gt;&gt; d
+    [1, 2, 3]
+    
+    &gt;&gt;&gt; a, b, c, d = (2**(x+1) for x in range(4)) #They can be built with generator expressions
+    &gt;&gt;&gt; a
+    2
+    &gt;&gt;&gt; b
+    4
+    &gt;&gt;&gt; c
+    8
+    &gt;&gt;&gt; d
+    16
+    
+    &gt;&gt;&gt; a, *b, c = 1, 2, 3, 4, 5 # Unpacking can do this too
+    &gt;&gt;&gt; a
+    1
+    &gt;&gt;&gt; b
+    [2, 3, 4]
+    &gt;&gt;&gt; c
+    5
+    
+    &gt;&gt;&gt; def funWithTwoParams(a, b):
+    ...     return (a, b)
+    ...
+    &gt;&gt;&gt; tup = (1, 2)
+    &gt;&gt;&gt; funWithTwoParams(*tup) # The star or 'splat' operator can be used to unpack a tuple into multiple arguments as well
+    (1, 2)
+    </code>
+</pre>
+
+<h3>Pythonic Functions</h3>
+<p>
+These are all built in functions that are meant to make life easier by efficiently implementing common procedures. Some are used for quick conversions between different number systems and ascii encoding.
+</p>
+<pre>
+    <code>
+    &gt;&gt;&gt; nums = [97, 98, 99, 100, 101, 102]
+    &gt;&gt;&gt; [chr(x) for x in nums] # chr() takes a decimal number and turns it into an equivalent ascii character
+    ['a', 'b', 'c', 'd', 'e', 'f']
+    
+    &gt;&gt;&gt; [bin(x) for x in nums] # bin() takes a decimal number and returns a string of its binary equivalent
+    ['0b1100001', '0b1100010', '0b1100011', '0b1100100', '0b1100101', '0b1100110']
+    
+    &gt;&gt;&gt; [hex(x) for x in nums] # The same but for hex values
+    ['0x61', '0x62', '0x63', '0x64', '0x65', '0x66']
+    
+    &gt;&gt;&gt; [oct(x) for x in nums] # And also octal
+    ['0o141', '0o142', '0o143', '0o144', '0o145', '0o146']
+    
+    &gt;&gt;&gt; [ord(x) for x in [chr(y) for y in nums] ] # ord() will do the same but from character to decimal
+    [97, 98, 99, 100, 101, 102]
+    </code>
+</pre>
+<p>A few others make many common list operations much simpler</p>
+<pre>
+    <code>
+    &gt;&gt;&gt; nums = [97, 98, 99, 100]
+    &gt;&gt;&gt; chrs = ['a', 'b', 'c', 'd']
+    
+    &gt;&gt;&gt; list(zip(nums, chrs)) # zip() takes in a list of iterables and combines them by element order
+    [(97, 'a'), (98, 'b'), (99, 'c'), (100, 'd')]
+    
+    &gt;&gt;&gt; list(enumerate(chrs)) #enumerate() takes in an iterable and combines each element with what is basically its index
+    [(0, 'a'), (1, 'b'), (2, 'c'), (3, 'd')]
+    
+    &gt;&gt;&gt; list(enumerate(chrs, start=97)) # It can take an optional start parameter that sets the beginning of the count
+    [(97, 'a'), (98, 'b'), (99, 'c'), (100, 'd')]
+    
+    &gt;&gt;&gt; list(filter(lambda x: x % 2 == 0, nums)) #filter() returns an iterable of elements from the iterable passed in for which the passed in function returns True
+    [98, 100]
+    
+    &gt;&gt;&gt; list(map(chr, nums)) # map() returns on iterable of every element of the passed in iterable processed through the passed in function
+    ['a', 'b', 'c', 'd']
+    </code>
+</pre>
+
+<p>Lastly, several built-in functions are commonly used to obscure what other functions they are calling</p>
+
+<pre>
+    <code>
+    &gt;&gt;&gt; __import__('datetime').date.today() #__import__() imports modules, it is part of normal imports, but can be used to dynamically import modules
+    datetime.date(2020, 10, 20)
+    
+    &gt;&gt;&gt; globals() # This will return a dictionary of the current globals from the module scope where it is called
+    {'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': &lt;class '_frozen_importlib.BuiltinImporter'&gt;, '__spec__': None, '__annotations__': {}, '__builtins__': &lt;module 'builtins' (built-in)&gt;}
+    
+    &gt;&gt;&gt; globals()['__builtins__'].__dict__['print']("Hello") # Which can be used as a really confusing way to refer to variables and call functions
+    Hello
+    
+    &gt;&gt;&gt; exampleVar = "example"
+    &gt;&gt;&gt; locals() #The same can be done with locals()
+    {'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': &lt;class '_frozen_importlib.BuiltinImporter'&gt;, '__spec__': None, '__annotations__': {}, '__builtins__': &lt;module 'builtins' (built-in)&gt;, 'exampleVar': 'example'}
+    &gt;&gt;&gt; locals()['exampleVar']
+    'example'
+    
+    &gt;&gt;&gt; globals()['newVar'] = 5 # globals() and locals() can even be used to declare new variables and manipulate existing ones
+    &gt;&gt;&gt; newVar
+    5
+    &gt;&gt;&gt; globals()['newVar'] += 1
+    &gt;&gt;&gt; newVar
+    6
+    </code>
+</pre>
+<h3>Challenges For Further Practice</h3>
+<ul>
+    <li><a href="https://ctflearn.com/challenge/743" target="_blank">CTFLearn - Time to Eat</a></li>
+    <li><a href="https://ctflearn.com/challenge/449" target="_blank">CTFLearn - Python Reversal</a></li>
+    <li><a href="https://ctflearn.com/challenge/161" target="_blank">CTFLearn - Ten Thousand Hours</a> !Don't solve this unless you like wasting time. Just try to understand what's going on!</li>
+</ul>
+
+</div>
+
+  <small>tags: <em>ncl</em> - <em>capture</em> - <em>the flag</em> - <em>reversing</em></small>
+
+
+      </section>
+    </div>
+
+    
+  </body>
+</html>

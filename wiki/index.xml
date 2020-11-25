@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home on (PCC)^2 Wiki</title>
+    <link>/wiki/</link>
+    <description>Recent content in Home on (PCC)^2 Wiki</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 18 Nov 2020 23:46:42 -0800</lastBuildDate>
+    
+	<atom:link href="/wiki/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Active Directory Information</title>
+      <link>/wiki/resources/activedirectory/</link>
+      <pubDate>Wed, 18 Nov 2020 23:46:42 -0800</pubDate>
+      
+      <guid>/wiki/resources/activedirectory/</guid>
+      <description>Discord resources  Presentation: https://drive.google.com/file/d/1FVr5Gi9g1MJPcUvPNz8VgmbczLVDdtuj/view?usp=sharing Detailed video about understanding USB packet captures: https://desowin.org/usbpcap/videos.html Great exFAT documentation: http://ntfs.com/exfat-overview.htm CryptoZombies, gamified Solidity learning: https://cryptozombies.io/ Learn Solidity in Y minutes: https://learnxinyminutes.com/docs/solidity/ Ethernaut - Web3/Solidity wargame (like overthewire for ethereum): https://ethernaut.openzeppelin.com/ Intro To Smart Contracts (solidity documentation): https://docs.soliditylang.org/en/v0.7.4/introduction-to-smart-contracts.html List of known Solidity attack vectors: https://blog.sigmaprime.io/solidity-security.html Ethereum Smart Contract Best Practices - Known Attacks: https://consensys.github.io/smart-contract-best-practices/known_attacks/ Solidity Security Considerations (solidity documentation): https://docs.soliditylang.org/en/v0.7.4/security-considerations.html#security-considerations EVM Opcodes: https://docs.soliditylang.org/en/v0.7.4/yul.html#opcodes Mythril EVM bytecode security analysis tool: https://github.</description>
+    </item>
+    
+    <item>
+      <title>Adding a new page</title>
+      <link>/wiki/contributing/addingpage/</link>
+      <pubDate>Wed, 18 Nov 2020 23:46:42 -0800</pubDate>
+      
+      <guid>/wiki/contributing/addingpage/</guid>
+      <description>How to add a page or chapter to this Wiki If you want to add a section or an entire guide, you&amp;rsquo;ll likely want to Install Hugo, and a editor that helps with writing Markdown. I like Visual Studio Code.</description>
+    </item>
+    
+    <item>
+      <title>Cryptography</title>
+      <link>/wiki/resources/cryptography/</link>
+      <pubDate>Wed, 18 Nov 2020 23:46:42 -0800</pubDate>
+      
+      <guid>/wiki/resources/cryptography/</guid>
+      <description>Discord resources  Presentation: https://drive.google.com/file/d/1FVr5Gi9g1MJPcUvPNz8VgmbczLVDdtuj/view?usp=sharing Detailed video about understanding USB packet captures: https://desowin.org/usbpcap/videos.html Great exFAT documentation: http://ntfs.com/exfat-overview.htm CryptoZombies, gamified Solidity learning: https://cryptozombies.io/ Learn Solidity in Y minutes: https://learnxinyminutes.com/docs/solidity/ Ethernaut - Web3/Solidity wargame (like overthewire for ethereum): https://ethernaut.openzeppelin.com/ Intro To Smart Contracts (solidity documentation): https://docs.soliditylang.org/en/v0.7.4/introduction-to-smart-contracts.html List of known Solidity attack vectors: https://blog.sigmaprime.io/solidity-security.html Ethereum Smart Contract Best Practices - Known Attacks: https://consensys.github.io/smart-contract-best-practices/known_attacks/ Solidity Security Considerations (solidity documentation): https://docs.soliditylang.org/en/v0.7.4/security-considerations.html#security-considerations EVM Opcodes: https://docs.soliditylang.org/en/v0.7.4/yul.html#opcodes Mythril EVM bytecode security analysis tool: https://github.</description>
+    </item>
+    
+    <item>
+      <title>Discord</title>
+      <link>/wiki/resources/discord/</link>
+      <pubDate>Wed, 18 Nov 2020 23:46:42 -0800</pubDate>
+      
+      <guid>/wiki/resources/discord/</guid>
+      <description>Discord resources  Presentation: https://drive.google.com/file/d/1FVr5Gi9g1MJPcUvPNz8VgmbczLVDdtuj/view?usp=sharing Detailed video about understanding USB packet captures: https://desowin.org/usbpcap/videos.html Great exFAT documentation: http://ntfs.com/exfat-overview.htm CryptoZombies, gamified Solidity learning: https://cryptozombies.io/ Learn Solidity in Y minutes: https://learnxinyminutes.com/docs/solidity/ Ethernaut - Web3/Solidity wargame (like overthewire for ethereum): https://ethernaut.openzeppelin.com/ Intro To Smart Contracts (solidity documentation): https://docs.soliditylang.org/en/v0.7.4/introduction-to-smart-contracts.html List of known Solidity attack vectors: https://blog.sigmaprime.io/solidity-security.html Ethereum Smart Contract Best Practices - Known Attacks: https://consensys.github.io/smart-contract-best-practices/known_attacks/ Solidity Security Considerations (solidity documentation): https://docs.soliditylang.org/en/v0.7.4/security-considerations.html#security-considerations EVM Opcodes: https://docs.soliditylang.org/en/v0.7.4/yul.html#opcodes Mythril EVM bytecode security analysis tool: https://github.</description>
+    </item>
+    
+    <item>
+      <title>Editing a page</title>
+      <link>/wiki/contributing/editingpage/</link>
+      <pubDate>Wed, 18 Nov 2020 23:46:42 -0800</pubDate>
+      
+      <guid>/wiki/contributing/editingpage/</guid>
+      <description>How to edit a page For minor changes, go to the Github
+This is where the section will be on making a pull request to do things like fix typos
+ </description>
+    </item>
+    
+    <item>
+      <title>Opening an Issue</title>
+      <link>/wiki/contributing/issue/</link>
+      <pubDate>Wed, 18 Nov 2020 23:46:42 -0800</pubDate>
+      
+      <guid>/wiki/contributing/issue/</guid>
+      <description>How to report an error or ask for a feature If you have a request for a guide or other ideas for this site do
+Here I&amp;rsquo;ll have a section about creating issues on github
+ </description>
+    </item>
+    
+    <item>
+      <title>Web Application Testing</title>
+      <link>/wiki/resources/webapps/</link>
+      <pubDate>Wed, 18 Nov 2020 23:46:42 -0800</pubDate>
+      
+      <guid>/wiki/resources/webapps/</guid>
+      <description>Discord resources  Presentation: https://drive.google.com/file/d/1FVr5Gi9g1MJPcUvPNz8VgmbczLVDdtuj/view?usp=sharing Detailed video about understanding USB packet captures: https://desowin.org/usbpcap/videos.html Great exFAT documentation: http://ntfs.com/exfat-overview.htm CryptoZombies, gamified Solidity learning: https://cryptozombies.io/ Learn Solidity in Y minutes: https://learnxinyminutes.com/docs/solidity/ Ethernaut - Web3/Solidity wargame (like overthewire for ethereum): https://ethernaut.openzeppelin.com/ Intro To Smart Contracts (solidity documentation): https://docs.soliditylang.org/en/v0.7.4/introduction-to-smart-contracts.html List of known Solidity attack vectors: https://blog.sigmaprime.io/solidity-security.html Ethereum Smart Contract Best Practices - Known Attacks: https://consensys.github.io/smart-contract-best-practices/known_attacks/ Solidity Security Considerations (solidity documentation): https://docs.soliditylang.org/en/v0.7.4/security-considerations.html#security-considerations EVM Opcodes: https://docs.soliditylang.org/en/v0.7.4/yul.html#opcodes Mythril EVM bytecode security analysis tool: https://github.</description>
+    </item>
+    
+  </channel>
+</rss>
