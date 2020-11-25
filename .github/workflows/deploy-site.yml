@@ -42,5 +42,5 @@ jobs:
           uses: peaceiris/actions-gh-pages@v3
           with:
             deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-            external_repository: archwizard/pcc-cybersecurity-club.github.io 
+            external_repository: archwizard56/pcc-cybersecurity-club.github.io 
             publish_dir: ./_site
