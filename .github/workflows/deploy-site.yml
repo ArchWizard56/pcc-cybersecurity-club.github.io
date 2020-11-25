@@ -9,7 +9,16 @@ jobs:
     deploy:
         runs-on: ubuntu-18.04
         steps:
-        - uses: actions/checkout@v2
+        - name: Cloning repository  
+          uses: actions/checkout@v2
+
+        - name: Setting up gem cache
+          uses: actions/cache@v2
+          with:
+            path: vendor/bundle
+            key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+            restore-keys: |
+              ${{ runner.os }}-gems-
 
         - name: Setup Hugo
           uses: peaceiris/actions-hugo@v2
@@ -25,6 +34,7 @@ jobs:
           run: |
             sudo apt-get -yqq install libpq-dev
             gem install bundler
+            bundle config path vendor/bundle
             bundle install --jobs 4 --retry 3
             bundle exec jekyll build
 
