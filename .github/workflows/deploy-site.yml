@@ -32,7 +32,6 @@ jobs:
 
         - name: Build site
           run: |
-            sudo apt-get -yqq install libpq-dev
             gem install bundler
             bundle config path vendor/bundle
             bundle install --jobs 4 --retry 3
