@@ -1,2 +1,3 @@
 theme: jekyll-theme-hacker
 base-dir: https://github.com/pcc-cybersecurity-club
+keep_files: ['wiki']
